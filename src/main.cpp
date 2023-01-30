@@ -1,4 +1,12 @@
 #include "main.h"
+#include "robot.h"
+#include "driver_control.h"
+#include "autonomous.h"
+#include "pid.h"
+#include <cmath>
+
+using namespace pros;
+using namespace std;
 
 /**
  * A callback function for LLEMU's center button.
