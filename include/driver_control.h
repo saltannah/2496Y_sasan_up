@@ -11,7 +11,10 @@
 using namespace pros;
 using namespace std;
 
-void chassisFwd(){
+bool buttonR2;
+int launch = 0;
+
+void chassis(){
 	RF.move(con.get_analog(ANALOG_RIGHT_Y));
     RM.move(con.get_analog(ANALOG_RIGHT_Y));
     RB.move(con.get_analog(ANALOG_RIGHT_Y));
@@ -19,6 +22,70 @@ void chassisFwd(){
     LF.move(con.get_analog(ANALOG_LEFT_Y));
     LM.move(con.get_analog(ANALOG_LEFT_Y));
     LB.move(con.get_analog(ANALOG_LEFT_Y));
+}
+
+void flywheelSpin(){
+    FW.move(-110);
+}
+
+void intake(){
+    intakeMotor.move(-120);
+}
+
+void indexer(){
+    intakeMotor.move(95);
+}
+
+void driverFlywheel(){
+    //bool buttonA; //why are we still using A if the button is R2 lol
+
+    if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_R2)){
+		buttonR2 = !buttonR2;
+
+	    if(buttonR2){
+			flywheelSpin();
+            con.clear();
+			con.print(0, 0, "flywheel ON");
+			//con.clear();
+		}
+			
+		else if(!buttonR2){
+			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
+			FW.brake();
+            con.clear();
+			con.print(0, 0, "flywheel OFF");
+		}
+
+	}
+}
+
+void driverIntake(){
+    if(con.get_digital(E_CONTROLLER_DIGITAL_L1))
+		indexer();
+
+	else if(con.get_digital(E_CONTROLLER_DIGITAL_R1))
+		intake();
+	
+	else{
+		intakeMotor.set_brake_mode(E_MOTOR_BRAKE_COAST);
+		intakeMotor.brake();
+	}
+
+	}
+
+void expansion(){
+
+	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)){ //possibly add time conditions as well
+		if(launch == 0){
+			launch++;
+		}
+		else if(launch == 1){
+			pistonL.set_value(HIGH);
+			pistonR.set_value(HIGH);
+			pistonT.set_value(HIGH);
+			launch ++;
+		}
+	}
 }
 
 #endif

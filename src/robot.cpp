@@ -7,19 +7,19 @@ using namespace pros;
     //none of the ports are correct
     
     //chassis
-	pros::Motor RF (13, E_MOTOR_GEARSET_18, false);
-    pros::Motor RM (3, E_MOTOR_GEARSET_18, false);
-	pros::Motor RB (5, E_MOTOR_GEARSET_18, false);
+	pros::Motor RF (8, E_MOTOR_GEARSET_18, false);
+    pros::Motor RM (17, E_MOTOR_GEARSET_18, true);
+	pros::Motor RB (9, E_MOTOR_GEARSET_18, false);
 
-	pros::Motor LF (14, E_MOTOR_GEARSET_18, true);
-    pros::Motor LM (14, E_MOTOR_GEARSET_18, true);
-	pros::Motor LB (12, E_MOTOR_GEARSET_18, true);
+	pros::Motor LF (11, E_MOTOR_GEARSET_18, true);
+    pros::Motor LM (12, E_MOTOR_GEARSET_18, false);
+	pros::Motor LB (13, E_MOTOR_GEARSET_18, true);
 
 	//intake
-	pros::Motor intake (11, E_MOTOR_GEARSET_06, false);
+	pros::Motor intakeMotor (14, E_MOTOR_GEARSET_06, false); 
 
 	//flywheel
-	pros::Motor FW (10, E_MOTOR_GEARSET_06, false);
+	pros::Motor FW (15, E_MOTOR_GEARSET_06, false);
 
 	//pneumatics
 	pros::ADIDigitalOut pistonL(1, LOW);

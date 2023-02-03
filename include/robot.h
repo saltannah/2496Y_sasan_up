@@ -15,7 +15,7 @@ extern pros::Motor LM;
 extern pros::Motor LB;
 
 //intake
-extern pros::Motor intake;
+extern pros::Motor intakeMotor;
 
 //flywheel
 extern pros::Motor FW;
