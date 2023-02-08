@@ -13,6 +13,7 @@ using namespace std;
 
 bool buttonR2;
 bool buttonL2;
+bool angle;
 int launch = 0;
 
 void chassis(){
@@ -106,6 +107,20 @@ void expansion(){
 			pistonT.set_value(HIGH);
 			launch ++;
 		}
+	}
+}
+
+void angler(){
+	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_Y)){
+		angle = !angle;
+	}
+
+	if(angle){
+		pistonA.set_value(HIGH);
+	}
+
+	else if(!angle){
+		pistonA.set_value(LOW);
 	}
 }
 

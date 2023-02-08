@@ -99,6 +99,7 @@ void opcontrol() {
 	driverIntake();
 	driverFlywheel();
 	expansion();
+	angler();
 
 	pros::delay(5);
 	}
