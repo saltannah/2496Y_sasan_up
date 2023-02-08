@@ -12,6 +12,7 @@ using namespace pros;
 using namespace std;
 
 bool buttonR2;
+bool buttonL2;
 int launch = 0;
 
 void chassis(){
@@ -19,13 +20,17 @@ void chassis(){
     RM.move(con.get_analog(ANALOG_RIGHT_Y));
     RB.move(con.get_analog(ANALOG_RIGHT_Y));
 
-    LF.move(con.get_analog(ANALOG_LEFT_Y));
-    LM.move(con.get_analog(ANALOG_LEFT_Y));
-    LB.move(con.get_analog(ANALOG_LEFT_Y));
+    LF.move(con.get_analog(ANALOG_LEFT_Y) * 0.90); //just testing to make sure the correct side is adjusted
+    LM.move(con.get_analog(ANALOG_LEFT_Y) * 0.90);
+    LB.move(con.get_analog(ANALOG_LEFT_Y) * 0.90);
 }
 
 void flywheelSpin(){
-    FW.move(-110);
+    FW.move(103);
+}
+
+void revFlywheel(){
+	FW.move(-60);
 }
 
 void intake(){
@@ -33,7 +38,7 @@ void intake(){
 }
 
 void indexer(){
-    intakeMotor.move(95);
+    intakeMotor.move(103);
 }
 
 void driverFlywheel(){
@@ -54,6 +59,22 @@ void driverFlywheel(){
 			FW.brake();
             con.clear();
 			con.print(0, 0, "flywheel OFF");
+		}
+
+	}
+}
+
+void flywheelUnstuck(){
+	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_L2)){
+		buttonL2 = !buttonL2;
+
+	    if(buttonL2){
+			revFlywheel;
+		}
+			
+		else if(!buttonL2){
+			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
+			FW.brake();
 		}
 
 	}

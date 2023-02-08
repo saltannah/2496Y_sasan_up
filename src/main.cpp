@@ -87,6 +87,15 @@ void opcontrol() {
 	// pistonT.set_value(LOW);
 	while (true){
 	chassis();
+	/* just for testing
+	RF.move(con.get_analog(ANALOG_RIGHT_Y));
+    RM.move(con.get_analog(ANALOG_RIGHT_Y));
+    RB.move(con.get_analog(ANALOG_RIGHT_Y));
+
+    LF.move(con.get_analog(ANALOG_RIGHT_Y) * 0.90);
+    LM.move(con.get_analog(ANALOG_RIGHT_Y) * 0.90);
+    LB.move(con.get_analog(ANALOG_RIGHT_Y) * 0.90);
+	*/
 	driverIntake();
 	driverFlywheel();
 	expansion();

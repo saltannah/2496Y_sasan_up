@@ -19,7 +19,7 @@ using namespace pros;
 	pros::Motor intakeMotor (14, E_MOTOR_GEARSET_06, false); 
 
 	//flywheel
-	pros::Motor FW (15, E_MOTOR_GEARSET_06, false);
+	pros::Motor FW (15, E_MOTOR_GEARSET_06, true);
 
 	//pneumatics
 	pros::ADIDigitalOut pistonL(1, LOW);
