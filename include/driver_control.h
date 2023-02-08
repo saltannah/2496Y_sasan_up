@@ -14,6 +14,7 @@ using namespace std;
 bool buttonR2;
 bool buttonL2;
 bool angle;
+bool flywheelOn;
 int launch = 0;
 
 void chassis(){
@@ -49,6 +50,7 @@ void driverFlywheel(){
 		buttonR2 = !buttonR2;
 
 	    if(buttonR2){
+			flywheelOn = true;
 			flywheelSpin();
             con.clear();
 			con.print(0, 0, "flywheel ON");
@@ -56,26 +58,11 @@ void driverFlywheel(){
 		}
 			
 		else if(!buttonR2){
+			flywheelOn = false;
 			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
 			FW.brake();
             con.clear();
 			con.print(0, 0, "flywheel OFF");
-		}
-
-	}
-}
-
-void flywheelUnstuck(){
-	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_L2)){
-		buttonL2 = !buttonL2;
-
-	    if(buttonL2){
-			revFlywheel;
-		}
-			
-		else if(!buttonL2){
-			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
-			FW.brake();
 		}
 
 	}
@@ -111,16 +98,32 @@ void expansion(){
 }
 
 void angler(){
-	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_Y)){
+	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_L2)){
 		angle = !angle;
 	}
 
 	if(angle){
 		pistonA.set_value(HIGH);
+		if(flywheelOn){
+			FW.move(120);
+		}
+		else if(!flywheelOn){
+			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
+			FW.brake();
+		}
+
 	}
 
 	else if(!angle){
 		pistonA.set_value(LOW);
+		if(flywheelOn){
+			FW.move(103);
+		}
+		else if(!flywheelOn){
+			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
+			FW.brake();
+		}
+
 	}
 }
 
