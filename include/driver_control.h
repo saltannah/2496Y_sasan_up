@@ -41,6 +41,23 @@ void indexer(){
     intakeMotor.move(103);
 }
 
+
+void flywheelUnstuck(){
+	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_L2)){
+		buttonL2 = !buttonL2;
+
+	    if(buttonL2){
+			revFlywheel();
+		}
+			
+		else if(!buttonL2){
+			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
+			FW.brake();
+		}
+
+	}
+}
+
 void driverFlywheel(){
     //bool buttonA; //why are we still using A if the button is R2 lol
 
@@ -62,22 +79,7 @@ void driverFlywheel(){
 		}
 
 	}
-}
-
-void flywheelUnstuck(){
-	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_L2)){
-		buttonL2 = !buttonL2;
-
-	    if(buttonL2){
-			revFlywheel;
-		}
-			
-		else if(!buttonL2){
-			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
-			FW.brake();
-		}
-
-	}
+	flywheelUnstuck();
 }
 
 void driverIntake(){
