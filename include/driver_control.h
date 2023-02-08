@@ -82,6 +82,7 @@ void driverFlywheel(){
 	flywheelUnstuck();
 }
 
+
 void driverIntake(){
     if(con.get_digital(E_CONTROLLER_DIGITAL_L1))
 		indexer();
