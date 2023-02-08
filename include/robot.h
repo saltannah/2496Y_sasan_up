@@ -24,7 +24,6 @@ extern pros::Motor FW;
 extern pros::ADIDigitalOut pistonL;
 extern pros::ADIDigitalOut pistonT;
 extern pros::ADIDigitalOut pistonR;
-extern pros::ADIDigitalOut pistonA;
 
 //IMU
 extern pros::IMU imu;

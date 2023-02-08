@@ -1,7 +1,6 @@
 #ifndef DRIVER_CONTROL
 #define DRIVER_CONTROL
 
-#include "driver_control.h"
 #include "main.h"
 #include "pros/misc.h"
 #include "robot.h"
@@ -42,22 +41,6 @@ void indexer(){
     intakeMotor.move(103);
 }
 
-void flywheelUnstuck(){
-	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_L2)){
-		buttonL2 = !buttonL2;
-
-	    if(buttonL2){
-			revFlywheel();
-		}
-			
-		else if(!buttonL2){
-			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
-			FW.brake();
-		}
-
-	}
-}
-
 void driverFlywheel(){
     //bool buttonA; //why are we still using A if the button is R2 lol
 
@@ -79,9 +62,23 @@ void driverFlywheel(){
 		}
 
 	}
-	flywheelUnstuck();
 }
 
+void flywheelUnstuck(){
+	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_L2)){
+		buttonL2 = !buttonL2;
+
+	    if(buttonL2){
+			revFlywheel;
+		}
+			
+		else if(!buttonL2){
+			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
+			FW.brake();
+		}
+
+	}
+}
 
 void driverIntake(){
     if(con.get_digital(E_CONTROLLER_DIGITAL_L1))
@@ -109,12 +106,6 @@ void expansion(){
 			pistonT.set_value(HIGH);
 			launch ++;
 		}
-	}
-}
-
-void angler(){
-	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_Y)){
-		pistonA.set_value(HIGH);
 	}
 }
 
