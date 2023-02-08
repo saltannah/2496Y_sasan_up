@@ -104,18 +104,21 @@ void angler(){
 
 	if(angle){
 		pistonA.set_value(HIGH);
+		/*
 		if(flywheelOn){
 			FW.move(120);
 		}
+		
 		else if(!flywheelOn){
 			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
 			FW.brake();
 		}
-
+		*/
 	}
 
 	else if(!angle){
 		pistonA.set_value(LOW);
+		/*
 		if(flywheelOn){
 			FW.move(103);
 		}
@@ -123,7 +126,7 @@ void angler(){
 			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
 			FW.brake();
 		}
-
+		*/
 	}
 }
 
