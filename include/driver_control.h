@@ -92,7 +92,7 @@ void driverIntake(){
 	}
 
 	}
-
+/*
 void expansion(){
 
 	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)){ //possibly add time conditions as well
@@ -103,6 +103,19 @@ void expansion(){
 			pistonL.set_value(HIGH);
 			pistonR.set_value(HIGH);
 			pistonT.set_value(HIGH);
+			launch ++;
+		}
+	}
+}
+*/
+
+void expansion(){
+	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)){ //possibly add time conditions as well
+		if(launch == 0){
+			launch++;
+		}
+		else if(launch == 1){
+			expPiston.set_value(HIGH);
 			launch ++;
 		}
 	}
