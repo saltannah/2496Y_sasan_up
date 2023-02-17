@@ -93,14 +93,14 @@ void autonomous() {
 	jankLeft(70);//115 with only one side
 	delay(500);
 	timeDrive(-60, 200);
-	delay(1500);
+	delay(1500);//wazzuuuuup!!!!!!
 	//indexer(); instead trying:
 	intakeMotor.move(-120);
 	delay(210);
-	indexerBrake();
+	indexerBrake();//you're not sasan, I'm Gerald!!
 	delay(1000);
 	intakeMotor.move(-120);
-	delay(400);
+	delay(400);//
 	indexerBrake();
 	flywheelBrake();
 
