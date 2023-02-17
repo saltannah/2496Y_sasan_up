@@ -11,10 +11,21 @@ using namespace pros;
 
 
 void resetEncoder(){
-    RF.set_zero_position(0);
-    RB.set_zero_position(0);
-    LF.set_zero_position(0);
-    LB.set_zero_position(0);
+    RF.tare_position();
+    RM.tare_position();
+    RB.tare_position();
+    LF.tare_position();
+    LM.tare_position();
+    LB.tare_position();
+}
+
+void drive(int power){
+    RF.move(power);
+    RM.move(power);
+    RB.move(power);
+    LF.move(power);
+    LM.move(power);
+    LB.move(power);
 }
 
 #endif
