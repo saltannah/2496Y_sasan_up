@@ -69,12 +69,15 @@ void competition_initialize() {}
 void autonomous() {
 	//flywheelSpin(); instead use:
 	//FW.move(127);
+
 	timeDrive(60, 150);
 	delay(800);
 	roller();
 	delay(1000);
-	FW.move(100);
+	//FW.move(100);
+	FW.move(127);
 	delay(500);
+	/*
 	timeDrive(-60, 300);
 	delay(300);
 	jankRight(400);
@@ -83,7 +86,8 @@ void autonomous() {
 	delay(1000);
 	indexerBrake();
 	flywheelBrake();
-	/*
+	*/
+	
 	timeDrive(-60, 260);
 	delay(1000);
 	jankLeft(70);//115 with only one side
@@ -99,7 +103,7 @@ void autonomous() {
 	delay(400);
 	indexerBrake();
 	flywheelBrake();
-	*/
+
 
 }
 

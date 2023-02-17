@@ -29,7 +29,7 @@ void chassis(){
 }
 
 void flywheelSpin(){
-    FW.move(103);
+    FW.move(105);
 }
 
 void revFlywheel(){
@@ -117,9 +117,11 @@ void expansion(){
 		else if(launch == 1){
 			expPiston.set_value(HIGH);
 			launch ++;
+			con.print(0, 0, "expansion");
 		}
 	}
 }
+
 
 void angler(){
 	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_L2)){
@@ -140,6 +142,7 @@ void angler(){
 		*/
 	}
 
+
 	else if(!angle){
 		pistonA.set_value(LOW);
 		/*
@@ -153,5 +156,6 @@ void angler(){
 		*/
 	}
 }
+
 
 #endif
