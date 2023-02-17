@@ -29,7 +29,7 @@ void chassis(){
 }
 
 void flywheelSpin(){
-    FW.move(105);
+    FW.move(107); //105
 }
 
 void revFlywheel(){
@@ -37,7 +37,7 @@ void revFlywheel(){
 }
 
 void intake(){
-    intakeMotor.move(-120);
+    intakeMotor.move(-120); //-120
 }
 
 void indexer(){
@@ -151,7 +151,7 @@ void angler(){
 			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
 			FW.brake();
 		}
-		
+
 	}
 }
 
