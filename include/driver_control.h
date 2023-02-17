@@ -3,6 +3,7 @@
 
 #include "main.h"
 #include "pros/misc.h"
+#include "pros/motors.h"
 #include "robot.h"
 #include "pid.h"
 #include <cmath>
@@ -41,6 +42,16 @@ void intake(){
 
 void indexer(){
     intakeMotor.move(103);
+}
+
+void indexerBrake(){
+    intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	intakeMotor.brake();
+}
+
+void flywheelBrake(){
+	FW.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	FW.brake();
 }
 
 void driverFlywheel(){

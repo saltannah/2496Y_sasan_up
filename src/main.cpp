@@ -66,7 +66,42 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() {
+	//flywheelSpin(); instead use:
+	//FW.move(127);
+	timeDrive(60, 150);
+	delay(800);
+	roller();
+	delay(1000);
+	FW.move(100);
+	delay(500);
+	timeDrive(-60, 300);
+	delay(300);
+	jankRight(400);
+	delay(1000);
+	intakeMotor.move(-100);
+	delay(1000);
+	indexerBrake();
+	flywheelBrake();
+	/*
+	timeDrive(-60, 260);
+	delay(1000);
+	jankLeft(70);//115 with only one side
+	delay(500);
+	timeDrive(-60, 200);
+	delay(1500);
+	//indexer(); instead trying:
+	intakeMotor.move(-120);
+	delay(210);
+	indexerBrake();
+	delay(1000);
+	intakeMotor.move(-120);
+	delay(400);
+	indexerBrake();
+	flywheelBrake();
+	*/
+
+}
 
 /**
  * Runs the operator control code. This function will be started in its own task
