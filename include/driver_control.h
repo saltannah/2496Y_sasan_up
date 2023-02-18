@@ -16,6 +16,7 @@ bool buttonR2;
 bool buttonL2;
 bool angle;
 bool flywheelOn;
+bool slowFlywheel = false;
 int launch = 0;
 
 void chassis(){
@@ -32,12 +33,16 @@ void flywheelSpin(){
     FW.move(107); //105
 }
 
+void flywheelSpinSlow(){
+	FW.move(102);
+}
+
 void revFlywheel(){
 	FW.move(-60);
 }
 
 void intake(){
-    intakeMotor.move(-120); //-120
+    intakeMotor.move(-127); //-120
 }
 
 void indexer(){
@@ -56,13 +61,21 @@ void flywheelBrake(){
 
 void driverFlywheel(){
     //bool buttonA; //why are we still using A if the button is R2 lol
+	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_DOWN)){
+		slowFlywheel = !slowFlywheel;
+	}
 
     if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_R2)){
 		buttonR2 = !buttonR2;
 
 	    if(buttonR2){
 			flywheelOn = true;
-			flywheelSpin();
+			if(!slowFlywheel){
+				flywheelSpin();
+			}
+			else if(slowFlywheel){
+				flywheelSpinSlow();
+			}
             con.clear();
 			con.print(0, 0, "flywheel ON");
 			//con.clear();
@@ -131,7 +144,7 @@ void angler(){
 	if(angle){
 		pistonA.set_value(HIGH);
 		if(flywheelOn){
-			FW.move(120);
+			FW.move(117); //120
 		}
 		
 		else if(!flywheelOn){
@@ -145,7 +158,12 @@ void angler(){
 	else if(!angle){
 		pistonA.set_value(LOW);
 		if(flywheelOn){
-			FW.move(103);
+			if(!slowFlywheel){
+				flywheelSpin();
+			}
+			else if(slowFlywheel){
+				flywheelSpinSlow();
+			}
 		}
 		else if(!flywheelOn){
 			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
