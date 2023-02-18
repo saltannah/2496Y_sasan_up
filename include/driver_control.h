@@ -173,5 +173,11 @@ void angler(){
 	}
 }
 
+void testPID(){
+	if(con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
+		newTurn(90);
+	}
+}
+
 
 #endif
