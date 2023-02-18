@@ -20,15 +20,6 @@ void flywheelStop(){
 }
 
 void chassisBrake(){
-    /*
-    RF.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-    RM.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-    RB.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-
-    LF.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-    LM.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-    LB.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-    */
     RF.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
     RM.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
     RB.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);

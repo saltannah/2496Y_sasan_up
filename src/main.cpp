@@ -67,43 +67,22 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
-	//flywheelSpin(); instead use:
-	//FW.move(127);
+	//drivePID(930); is 800 a tile?
+	//con.clear();
+	imu.reset();
+	while(imu.is_calibrating()){
+		delay(5);
+	}
 
-	timeDrive(60, 150);
-	delay(800);
-	roller();
-	delay(1000);
-	//FW.move(100);
-	FW.move(127);
-	delay(500);
+	newTurn(90);
+
 	/*
-	timeDrive(-60, 300);
-	delay(300);
-	jankRight(400);
-	delay(1000);
-	intakeMotor.move(-100);
-	delay(1000);
-	indexerBrake();
-	flywheelBrake();
-	*/
+	//once pid is tuned:
+	drivePID(100);
+	delay();
+	roller();
 	
-	timeDrive(-60, 260);
-	delay(1000);
-	jankLeft(70);//115 with only one side
-	delay(500);
-	timeDrive(-60, 200);
-	delay(1500);//wazzuuuuup!!!!!!
-	//indexer(); instead trying:
-	intakeMotor.move(-120);
-	delay(210);
-	indexerBrake();//you're not sasan, I'm Gerald!!
-	delay(1000);
-	intakeMotor.move(-120);
-	delay(400);//
-	indexerBrake();
-	flywheelBrake();
-
+	*/
 
 }
 

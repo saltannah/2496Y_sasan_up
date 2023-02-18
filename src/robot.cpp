@@ -26,10 +26,10 @@ using namespace pros;
 	pros::ADIDigitalOut pistonT(5, LOW);
 	pros::ADIDigitalOut pistonR(2, LOW);
 	pros::ADIDigitalOut expPiston(7, LOW);
-	pros::ADIDigitalOut pistonA(3, LOW);
+	pros::ADIDigitalOut pistonA(21, LOW);
 
 	//IMU
-	pros::Imu imu (8); //change port it's just temp
+	pros::Imu imu (19); //change port it's just temp
 
 	//controller
 	pros::Controller con (CONTROLLER_MASTER);
