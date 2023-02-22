@@ -74,7 +74,7 @@ void autonomous() {
 		delay(5);
 	}
 
-	newTurn(90);
+	//newTurn(90);
 
 	/*
 	//once pid is tuned:
@@ -103,6 +103,11 @@ void opcontrol() {
 	// pistonL.set_value(LOW);
 	// pistonR.set_value(LOW);
 	// pistonT.set_value(LOW);
+	imu.reset();
+	while(imu.is_calibrating()){
+		delay(5);
+	}
+
 	while (true){
 	chassis();
 	/* just for testing
@@ -118,7 +123,7 @@ void opcontrol() {
 	driverFlywheel();
 	expansion();
 	angler();
-	//testPID(); button A for testing pid turns
+	testPID(); //button A for testing pid turns
 
 	pros::delay(5);
 	}

@@ -29,7 +29,7 @@ using namespace pros;
 	pros::ADIDigitalOut pistonA(3, LOW);
 
 	//IMU
-	pros::Imu imu (19); //change port it's just temp
+	pros::Imu imu (21); //change port it's just temp
 
 	//controller
 	pros::Controller con (CONTROLLER_MASTER);
