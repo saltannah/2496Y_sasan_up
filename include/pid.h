@@ -96,7 +96,7 @@ void newTurn(double degrees){
    		imu.set_heading(0);//10
    	}
 
-    float kP = 1.78; //1.78
+    float kP = 2.9; //1.78
    	float kI = 0.0;//
    	float kD = 0.0; 
    	double target = imu.get_heading() + degrees;
@@ -108,6 +108,7 @@ void newTurn(double degrees){
    	double derivative = 0.0;
     int time = 0;
     int count = 0;
+    int count2 = 0;
 
 
     while(abs(error) > 0.5){
@@ -123,16 +124,21 @@ void newTurn(double degrees){
         lastError = error;
         LF.move(power); LM.move(power); LB.move(power); RF.move(-power); RM.move(-power); RB.move(-power);
         
-        delay(45);
-        con.print(0, 0, "power: %d", power);
-        delay(50);
-        con.print(1, 1, "error: %f", error);
-        delay(50);
-        con.print(2, 2, "heading: %f", imu.get_heading());
-        delay(5);
+        con.print(0, 0, "error: %f", error);
+
+        // delay(50);
+        // con.print(0, 0, "power: %d", power);
+        // delay(50);
+        // con.print(1, 1, "error: %f", error);
+        // delay(50);
+        // con.print(2, 2, "heading: %f", imu.get_heading());
+
+        delay(10);
         //delay(150);
     }
+
     //chassis_stop();
+    //con.print(1, 1, "heading: %f", imu.get_heading());
 }
 
 void imuTurn(double degrees) //left needs more power
@@ -186,7 +192,7 @@ void imuTurn(double degrees) //left needs more power
         //con.print(0, 0, "err: %d", time);
         //time += 5;
     }
-   	//chassis_stop();
+   	chassis_stop();
    }
 
 

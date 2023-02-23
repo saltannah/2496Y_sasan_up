@@ -103,6 +103,7 @@ void opcontrol() {
 	// pistonL.set_value(LOW);
 	// pistonR.set_value(LOW);
 	// pistonT.set_value(LOW);
+	//con.clear();
 	imu.reset();
 	while(imu.is_calibrating()){
 		delay(5);
