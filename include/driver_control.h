@@ -175,9 +175,11 @@ void angler(){
 
 void testPID(){
 	if(con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
-		con.clear();
+		// con.clear();
+		// delay(5);
 		newTurn(90);
-		//imuTurn(90);
+		delay(50);
+		con.print(0,0,"all done");
 	}
 }
 

@@ -106,8 +106,11 @@ void opcontrol() {
 	//con.clear();
 	imu.reset();
 	while(imu.is_calibrating()){
+		con.print(0, 0, "calibrating...");
 		delay(5);
 	}
+	con.clear();
+	delay(5);
 
 	while (true){
 	chassis();
