@@ -18,6 +18,7 @@ bool angle;
 bool intakeAng;
 bool flywheelOn;
 bool slowFlywheel = false;
+bool expand;
 int launch = 0;
 
 void chassis(){
@@ -31,7 +32,7 @@ void chassis(){
 }
 
 void flywheelSpin(){
-    FW.move(107); //105
+    FW.move(100); //107
 }
 
 void flywheelSpinSlow(){
@@ -105,33 +106,22 @@ void driverIntake(){
 		intakeMotor.brake();
 	}
 
-	}
-/*
-void expansion(){
-
-	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)){ //possibly add time conditions as well
-		if(launch == 0){
-			launch++;
-		}
-		else if(launch == 1){
-			pistonL.set_value(HIGH);
-			pistonR.set_value(HIGH);
-			pistonT.set_value(HIGH);
-			launch ++;
-		}
-	}
-}
-*/
+ }
 
 void expansion(){
 	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)){ //possibly add time conditions as well
 		if(launch == 0){
 			launch++;
 		}
-		else if(launch == 1){
-			expPiston.set_value(HIGH);
-			launch ++;
-			con.print(0, 0, "expansion");
+		else if(launch > 0){
+			expand = !expand;
+			if(!expand){
+				expPiston.set_value(HIGH);
+				//con.print(0, 0, "expansion");
+			}
+			if(expand){
+				expPiston.set_value(LOW);
+			}
 		}
 	}
 }
@@ -180,13 +170,13 @@ void intakeHeight(){
 	}
 
 	if(intakeAng){
-		intakePistoon.set_value(HIGH);
+		intakePistoon.set_value(LOW);
 		con.print(0, 0, "intake up");
 		
 	}
 
 	else if(!intakeAng){
-		intakePistoon.set_value(LOW);
+		intakePistoon.set_value(HIGH);
 
 	}
 }

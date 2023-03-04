@@ -27,7 +27,7 @@ using namespace pros;
 	pros::ADIDigitalOut pistonR(2, LOW);
 	pros::ADIDigitalOut expPiston(7, LOW);
 	pros::ADIDigitalOut pistonAngler(3, LOW);
-	pros::ADIDigitalOut intakePistoon(4, LOW);
+	pros::ADIDigitalOut intakePistoon(4, HIGH);
 
 	//IMU
 	pros::Imu imu (21); //change port it's just temp

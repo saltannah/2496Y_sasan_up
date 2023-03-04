@@ -96,9 +96,9 @@ void newTurn(double degrees){
    		imu.set_heading(0);//10
    	}
 
-    float kP = 3.7; //1.78 1.85 2.7 3.5 *[4, heading: 90.174]* [3.95] [3.8] [3.78]
-   	float kI = 0.0;//
-   	float kD = 0.02; //0.07 0.05
+    float kP = .935; //1.78 1.85 2.7 3.5 *[4, heading: 90.174]* [3.95] [3.8] [3.78] [3.5]
+   	float kI = 0.00;//
+   	float kD = 0.0; //0.07 0.05
    	double target = imu.get_heading() + degrees;
    	double error = target - imu.get_heading(); // -90
    	double lastError = error;
