@@ -15,6 +15,7 @@ using namespace std;
 bool buttonR2;
 bool buttonL2;
 bool angle;
+bool intakeAng;
 bool flywheelOn;
 bool slowFlywheel = false;
 int launch = 0;
@@ -142,7 +143,7 @@ void angler(){
 	}
 
 	if(angle){
-		pistonA.set_value(HIGH);
+		pistonAngler.set_value(HIGH);
 		if(flywheelOn){
 			FW.move(117); //120
 		}
@@ -156,7 +157,7 @@ void angler(){
 
 
 	else if(!angle){
-		pistonA.set_value(LOW);
+		pistonAngler.set_value(LOW);
 		if(flywheelOn){
 			if(!slowFlywheel){
 				flywheelSpin();
@@ -169,6 +170,23 @@ void angler(){
 			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
 			FW.brake();
 		}
+
+	}
+}
+
+void intakeHeight(){
+	if(con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)){
+		intakeAng = !intakeAng;
+	}
+
+	if(intakeAng){
+		intakePistoon.set_value(HIGH);
+		con.print(0, 0, "intake up");
+		
+	}
+
+	else if(!intakeAng){
+		intakePistoon.set_value(LOW);
 
 	}
 }

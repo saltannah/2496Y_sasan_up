@@ -25,7 +25,8 @@ extern pros::ADIDigitalOut pistonL;
 extern pros::ADIDigitalOut pistonT;
 extern pros::ADIDigitalOut pistonR;
 extern pros::ADIDigitalOut expPiston;
-extern pros::ADIDigitalOut pistonA;
+extern pros::ADIDigitalOut pistonAngler;
+extern pros::ADIDigitalOut intakePistoon;
 
 //IMU
 extern pros::IMU imu;

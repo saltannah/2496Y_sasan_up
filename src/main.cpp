@@ -127,6 +127,7 @@ void opcontrol() {
 	driverFlywheel();
 	expansion();
 	angler();
+	intakeHeight();
 	testPID(); //button A for testing pid turns
 
 	pros::delay(5);
