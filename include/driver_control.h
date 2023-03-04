@@ -18,8 +18,9 @@ bool angle;
 bool intakeAng;
 bool flywheelOn;
 bool slowFlywheel = false;
-bool expand;
+bool expand = false;
 int launch = 0;
+bool spamExpand = false;
 
 void chassis(){
 	RF.move(con.get_analog(ANALOG_RIGHT_Y));
@@ -32,7 +33,7 @@ void chassis(){
 }
 
 void flywheelSpin(){
-    FW.move(100); //107 //100
+    FW.move(102); //107 //100
 	//FW.move_velocity(480);
 	//when changing remember to update flywheelLower
 }
@@ -124,20 +125,37 @@ void driverIntake(){
 
  }
 
+// void expansion(){
+// 	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)){ //possibly add time conditions as well
+// 		if(launch == 0){
+// 			launch++;
+// 			con.print(0, 0, "%d", launch);
+// 		}
+// 		else if(launch > 0){
+// 			expand = !expand;
+// 			if(!expand){
+// 				expPiston.set_value(HIGH);
+// 				//con.print(0, 0, "expansion");
+// 			}
+// 			else if(expand){
+// 				expPiston.set_value(LOW);
+// 			}
+// 		}
+// 	}
+// }
+
 void expansion(){
-	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)){ //possibly add time conditions as well
-		if(launch == 0){
-			launch++;
-		}
-		else if(launch > 0){
-			expand = !expand;
-			if(!expand){
-				expPiston.set_value(HIGH);
-				//con.print(0, 0, "expansion");
-			}
-			if(expand){
-				expPiston.set_value(LOW);
-			}
+ 	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)){ //possibly add time conditions as well
+ 		if(spamExpand == false){
+			expPiston.set_value(LOW);
+			spamExpand = true;
+			//launch++;
+ 		}
+ 		else if(spamExpand == true){
+ 			expPiston.set_value(HIGH);
+ 			//launch ++;
+			spamExpand = false;
+			con.print(0, 0, "expansion");
 		}
 	}
 }
