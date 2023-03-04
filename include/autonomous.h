@@ -110,7 +110,7 @@ void jankLeft(int turnFor){
 
 void roller(){
     intakeMotor.move(120);
-    delay(300);
+    delay(270);
     intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
     intakeMotor.brake();
 }

@@ -77,8 +77,9 @@ void competition_initialize() {
  */
 void autonomous() {
 //close roller side: one roller, attempts five discs
-	FW.move_velocity(523);
-	drivePID(47);//45 47
+	FW.move_velocity(550);//525  540
+	//drivePID(47);//45 47
+	rollerDrive(47); //should break out of loop after 1.5 seconds
 	//delay(700);
 	roller();
 	delay(500);
@@ -93,34 +94,34 @@ void autonomous() {
 	intakeMotor.move(-127);
 	delay(300);
 	intakeMotor.brake();
-	FW.move_velocity(535);
-	delay(1100);
+	FW.move_velocity(535); //535
+	delay(1300);//1100
 	intakeMotor.move(-127);
 	delay(500);
 	//
 
 	//intakeMotor.brake();
-	newTurn(-115);
+	newTurn(-115); 
 	intakeMotor.move(127);
 	intakePistoon.set_value(LOW);
 	drivePID(350);
 	delay(500);
 	intakePistoon.set_value(HIGH);
 	delay(1500);
-	newTurn(99);
-	FW.move_velocity(510);
+	newTurn(100); //102
+	FW.move_velocity(487); //510  490
 	drivePID(-160);
 
 	//shooting
 	intakeMotor.move(-127);
 	delay(300);
 	intakeMotor.brake();
-	FW.move_velocity(515);
+	FW.move_velocity(500);//515
 	delay(1100);
 	intakeMotor.move(-127);
 	delay(300);
 	intakeMotor.brake();
-	FW.move_velocity(520);
+	FW.move_velocity(500);//520
 	delay(1100);
 	intakeMotor.move(-127);
 	delay(300);
@@ -197,60 +198,60 @@ void opcontrol() {
 	angler();
 	intakeHeight();
 
-	if(con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
-		FW.move_velocity(525);
-		drivePID(47);//45 47
-		//delay(700);
-		roller();
-		delay(500);
-		drivePID(-90);
-		//delay(500);
-		autonTurn(-11);
-		//delay(500);
-		drivePID(-160);
-		delay(800);
+	// if(con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
+	// 	FW.move_velocity(525);
+	// 	drivePID(47);//45 47
+	// 	//delay(700);
+	// 	roller();
+	// 	delay(500);
+	// 	drivePID(-90);
+	// 	//delay(500);
+	// 	autonTurn(-11);
+	// 	//delay(500);
+	// 	drivePID(-160);
+	// 	delay(800);
 		
-		//shooting
-		intakeMotor.move(-127);
-		delay(300);
-		intakeMotor.brake();
-		FW.move_velocity(535);
-		delay(1000);
-		intakeMotor.move(-127);
-		delay(500);
-		//
+	// 	//shooting
+	// 	intakeMotor.move(-127);
+	// 	delay(300);
+	// 	intakeMotor.brake();
+	// 	FW.move_velocity(535);
+	// 	delay(1000);
+	// 	intakeMotor.move(-127);
+	// 	delay(500);
+	// 	//
 
-		//intakeMotor.brake();
-		newTurn(-115);
-		intakeMotor.move(127);
-		intakePistoon.set_value(LOW);
-		FW.move_velocity(480);
-		drivePID(350);
-		delay(500);
-		intakePistoon.set_value(HIGH);
-		delay(1500);
-		newTurn(99);
-		drivePID(-160);
+	// 	//intakeMotor.brake();
+	// 	newTurn(-115);
+	// 	intakeMotor.move(127);
+	// 	intakePistoon.set_value(LOW);
+	// 	FW.move_velocity(480);
+	// 	drivePID(350);
+	// 	delay(500);
+	// 	intakePistoon.set_value(HIGH);
+	// 	delay(1500);
+	// 	newTurn(99);
+	// 	drivePID(-160);
 
-		//shooting
-		intakeMotor.move(-127);
-		delay(300);
-		intakeMotor.brake();
-		FW.move_velocity(485);
-		delay(1100);
-		intakeMotor.move(-127);
-		delay(300);
-		intakeMotor.brake();
-		FW.move_velocity(490);
-		delay(1100);
-		intakeMotor.move(-127);
-		delay(300);
-		//
+	// 	//shooting
+	// 	intakeMotor.move(-127);
+	// 	delay(300);
+	// 	intakeMotor.brake();
+	// 	FW.move_velocity(485);
+	// 	delay(1100);
+	// 	intakeMotor.move(-127);
+	// 	delay(300);
+	// 	intakeMotor.brake();
+	// 	FW.move_velocity(490);
+	// 	delay(1100);
+	// 	intakeMotor.move(-127);
+	// 	delay(300);
+	// 	//
 
 
 	
 
-	}
+	//}
 	//testPID(); //button A for testing pid turns
 
 	pros::delay(5);

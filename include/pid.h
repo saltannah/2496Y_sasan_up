@@ -87,6 +87,57 @@ void drivePID(int target){ //1.03 rev = approx 927 encoder units = 1 tile
     chassis_stop();
 }
 
+void rollerDrive(int target){ //1.03 rev = approx 927 encoder units = 1 tile
+    float error = 0;
+    float prevError = 0;
+    float integral = 0;
+    float derivative = 0;
+    float kP;
+    float kI;
+    float kD;
+    float power;
+    int counter = 0;
+
+    kP = 1; //started with 1
+    kI = 0;
+    kD = 0;
+
+    resetEncoder();
+    error = target;
+
+
+    while(counter < 1500){ //change condition
+    int currPos = (RF.get_position() + RB.get_position()) / 2;
+    error = target - currPos;
+    integral = integral + error;
+
+    // if(error <= 0){ //set conditions later
+    //     integral = 0;
+    // }
+
+    derivative = error - prevError;
+    prevError = error;
+    power = error*kP + integral*kI + derivative*kD;
+    
+    //int yes = 1;
+
+    //drivePID(power);
+    drive(power);
+
+    /*if (error < 3){
+        counter = counter + 1;
+    }*/
+
+    //con.print(0,0,yes);
+    delay (10);
+    con.print(0, 0, "error: %f", error);
+    con.print(0, 0, "LM %d", target - LM.get_position());
+    con.print(0, 5, "RM %d", target - RM.get_position());
+    counter += 10;
+    }
+    chassis_stop();
+}
+
 void newTurn(double degrees){
     int localTime = 0;
     bool negdeg;
