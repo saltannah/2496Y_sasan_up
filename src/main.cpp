@@ -35,6 +35,10 @@ void initialize() {
 	pros::lcd::set_text(1, "Hello PROS User!");
 
 	pros::lcd::register_btn1_cb(on_center_button);
+	imu.reset();
+	while(imu.is_calibrating()){
+		delay(5);
+	}
 }
 
 /**
@@ -53,7 +57,12 @@ void disabled() {}
  * This task will exit when the robot is enabled and autonomous or opcontrol
  * starts.
  */
-void competition_initialize() {}
+void competition_initialize() {
+	imu.reset();
+	while(imu.is_calibrating()){
+		delay(5);
+	}
+}
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -69,20 +78,74 @@ void competition_initialize() {}
 void autonomous() {
 	//drivePID(930); is 800 a tile?
 	//con.clear();
-	imu.reset();
-	while(imu.is_calibrating()){
-		delay(5);
-	}
+	// imu.reset();
+	// while(imu.is_calibrating()){
+	// 	delay(5);
+	// }
+	// FW.move(127);
+	// drivePID(45);
+	// delay(700);
+	// roller();
+	// delay(500);
+	// drivePID(-90);
+	// delay(500);
+	// newTurn(-8);
+	// delay(500);
+	// indexer();
+	// delay(1000);
+	// intakeMotor.brake();
 
-	//newTurn(90);
+	//intakeMotor.move(100);
 
-	/*
-	//once pid is tuned:
-	drivePID(100);
-	delay();
-	roller();
-	
-	*/
+	FW.move_velocity(523);
+		drivePID(47);//45 47
+		//delay(700);
+		roller();
+		delay(500);
+		drivePID(-90);
+		//delay(500);
+		autonTurn(-11);
+		//delay(500);
+		drivePID(-160);
+		delay(800);
+		
+		//shooting
+		intakeMotor.move(-127);
+		delay(300);
+		intakeMotor.brake();
+		FW.move_velocity(535);
+		delay(1100);
+		intakeMotor.move(-127);
+		delay(500);
+		//
+
+		//intakeMotor.brake();
+		newTurn(-115);
+		intakeMotor.move(127);
+		intakePistoon.set_value(LOW);
+		drivePID(350);
+		delay(500);
+		intakePistoon.set_value(HIGH);
+		delay(1500);
+		newTurn(99);
+		FW.move_velocity(510);
+		drivePID(-160);
+
+		//shooting
+		intakeMotor.move(-127);
+		delay(300);
+		intakeMotor.brake();
+		FW.move_velocity(515);
+		delay(1100);
+		intakeMotor.move(-127);
+		delay(300);
+		intakeMotor.brake();
+		FW.move_velocity(520);
+		delay(1100);
+		intakeMotor.move(-127);
+		delay(300);
+		//
+
 
 }
 
@@ -125,10 +188,66 @@ void opcontrol() {
 	*/
 	driverIntake();
 	driverFlywheel();
+	flywheelSlow();
 	expansion();
 	angler();
 	intakeHeight();
-	testPID(); //button A for testing pid turns
+
+	if(con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
+		FW.move_velocity(525);
+		drivePID(47);//45 47
+		//delay(700);
+		roller();
+		delay(500);
+		drivePID(-90);
+		//delay(500);
+		autonTurn(-11);
+		//delay(500);
+		drivePID(-160);
+		delay(800);
+		
+		//shooting
+		intakeMotor.move(-127);
+		delay(300);
+		intakeMotor.brake();
+		FW.move_velocity(535);
+		delay(1000);
+		intakeMotor.move(-127);
+		delay(500);
+		//
+
+		//intakeMotor.brake();
+		newTurn(-115);
+		intakeMotor.move(127);
+		intakePistoon.set_value(LOW);
+		FW.move_velocity(480);
+		drivePID(350);
+		delay(500);
+		intakePistoon.set_value(HIGH);
+		delay(1500);
+		newTurn(99);
+		drivePID(-160);
+
+		//shooting
+		intakeMotor.move(-127);
+		delay(300);
+		intakeMotor.brake();
+		FW.move_velocity(485);
+		delay(1100);
+		intakeMotor.move(-127);
+		delay(300);
+		intakeMotor.brake();
+		FW.move_velocity(490);
+		delay(1100);
+		intakeMotor.move(-127);
+		delay(300);
+		//
+
+
+	
+
+	}
+	//testPID(); //button A for testing pid turns
 
 	pros::delay(5);
 	}

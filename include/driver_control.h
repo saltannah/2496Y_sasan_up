@@ -32,7 +32,9 @@ void chassis(){
 }
 
 void flywheelSpin(){
-    FW.move(100); //107
+    FW.move(100); //107 //100
+	//FW.move_velocity(480);
+	//when changing remember to update flywheelLower
 }
 
 void flywheelSpinSlow(){
@@ -60,6 +62,7 @@ void flywheelBrake(){
 	FW.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	FW.brake();
 }
+
 
 void driverFlywheel(){
     //bool buttonA; //why are we still using A if the button is R2 lol
@@ -93,6 +96,19 @@ void driverFlywheel(){
 
 	}
 }
+
+void flywheelSlow(){
+		//CHANGE WHEN UPDATING FLYWHEEL SPEED
+	if(flywheelOn == true){
+		if(con.get_digital(E_CONTROLLER_DIGITAL_DOWN)){
+			FW.move(95);
+		}
+		else{
+			FW.move(100);
+		}
+	}
+}
+
 
 void driverIntake(){
     if(con.get_digital(E_CONTROLLER_DIGITAL_L1))
@@ -185,11 +201,12 @@ void testPID(){
 	if(con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
 		// con.clear();
 		// delay(5);
-		newTurn(90);
+		newTurn(-90);
 		delay(50);
 		con.print(0,0,"all done");
 	}
 }
+
 
 
 #endif

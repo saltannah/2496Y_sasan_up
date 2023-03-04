@@ -51,6 +51,17 @@ void timeDrive(int speed, int driveFor){
     chassisBrake();
 }
 
+void encoderDrive(int speed, int encoderUnits){
+    RF.move_absolute(encoderUnits, speed);
+    RM.move_absolute(encoderUnits, speed);
+    RB.move_absolute(encoderUnits, speed);
+
+    LF.move_absolute(encoderUnits, speed);
+    LM.move_absolute(encoderUnits, speed);
+    LB.move_absolute(encoderUnits, speed);
+
+}
+
 void jankRight(int turnFor){
     LF.move(65); //just testing to make sure the correct side is adjusted
     LM.move(65);
@@ -98,7 +109,7 @@ void jankLeft(int turnFor){
 }
 
 void roller(){
-    intakeMotor.move(-100);
+    intakeMotor.move(120);
     delay(300);
     intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
     intakeMotor.brake();
