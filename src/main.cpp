@@ -76,77 +76,81 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-	//drivePID(930); is 800 a tile?
-	//con.clear();
-	// imu.reset();
-	// while(imu.is_calibrating()){
-	// 	delay(5);
-	// }
-	// FW.move(127);
-	// drivePID(45);
-	// delay(700);
-	// roller();
-	// delay(500);
-	// drivePID(-90);
-	// delay(500);
-	// newTurn(-8);
-	// delay(500);
-	// indexer();
-	// delay(1000);
-	// intakeMotor.brake();
-
-	//intakeMotor.move(100);
-
+//close roller side: one roller, attempts five discs
 	FW.move_velocity(523);
-		drivePID(47);//45 47
-		//delay(700);
-		roller();
-		delay(500);
-		drivePID(-90);
-		//delay(500);
-		autonTurn(-11);
-		//delay(500);
-		drivePID(-160);
-		delay(800);
-		
-		//shooting
-		intakeMotor.move(-127);
-		delay(300);
-		intakeMotor.brake();
-		FW.move_velocity(535);
-		delay(1100);
-		intakeMotor.move(-127);
-		delay(500);
-		//
+	drivePID(47);//45 47
+	//delay(700);
+	roller();
+	delay(500);
+	drivePID(-90);
+	//delay(500);
+	autonTurn(-11);
+	//delay(500);
+	drivePID(-160);
+	delay(800);
+	
+	//shooting
+	intakeMotor.move(-127);
+	delay(300);
+	intakeMotor.brake();
+	FW.move_velocity(535);
+	delay(1100);
+	intakeMotor.move(-127);
+	delay(500);
+	//
 
-		//intakeMotor.brake();
-		newTurn(-115);
-		intakeMotor.move(127);
-		intakePistoon.set_value(LOW);
-		drivePID(350);
-		delay(500);
-		intakePistoon.set_value(HIGH);
-		delay(1500);
-		newTurn(99);
-		FW.move_velocity(510);
-		drivePID(-160);
+	//intakeMotor.brake();
+	newTurn(-115);
+	intakeMotor.move(127);
+	intakePistoon.set_value(LOW);
+	drivePID(350);
+	delay(500);
+	intakePistoon.set_value(HIGH);
+	delay(1500);
+	newTurn(99);
+	FW.move_velocity(510);
+	drivePID(-160);
 
-		//shooting
-		intakeMotor.move(-127);
-		delay(300);
-		intakeMotor.brake();
-		FW.move_velocity(515);
-		delay(1100);
-		intakeMotor.move(-127);
-		delay(300);
-		intakeMotor.brake();
-		FW.move_velocity(520);
-		delay(1100);
-		intakeMotor.move(-127);
-		delay(300);
-		//
+	//shooting
+	intakeMotor.move(-127);
+	delay(300);
+	intakeMotor.brake();
+	FW.move_velocity(515);
+	delay(1100);
+	intakeMotor.move(-127);
+	delay(300);
+	intakeMotor.brake();
+	FW.move_velocity(520);
+	delay(1100);
+	intakeMotor.move(-127);
+	delay(300);
+	//
 
+//far roller side: shoot two discs and then go for the roller (hopefully we have enough time)
+	// intakeMotor.move(127);
+	// drivePID(200);
+	// newTurn(130);
 
+	// //shooting
+	// intakeMotor.move(-127);
+	// delay(300);
+	// intakeMotor.brake();
+	// FW.move_velocity(515);
+	// delay(1100);
+	// intakeMotor.move(-127);
+	// delay(300);
+	// intakeMotor.brake();
+	// FW.move_velocity(520);
+	// delay(1100);
+	// intakeMotor.move(-127);
+	// delay(300);
+	// //
+
+	// newTurn(50);
+	// drivePID(450);
+	// newTurn(40);
+	// drivePID(50);
+	// roller();
 }
 
 /**
