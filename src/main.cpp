@@ -172,13 +172,13 @@ void opcontrol() {
 	// pistonR.set_value(LOW);
 	// pistonT.set_value(LOW);
 	//con.clear();
-	// imu.reset();
-	// while(imu.is_calibrating()){
-	// 	con.print(0, 0, "calibrating...");
-	// 	delay(5);
-	// }
-	// con.clear();
-	// delay(5);
+	imu.reset();
+	while(imu.is_calibrating()){
+		con.print(0, 0, "calibrating...");
+		delay(5);
+	}
+	con.clear();
+	delay(5);
 
 	while (true){
 	chassis();
@@ -198,7 +198,7 @@ void opcontrol() {
 	angler();
 	intakeHeight();
 
-	//if(con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
+	// if(con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
 	// 	FW.move_velocity(525);
 	// 	drivePID(47);//45 47
 	// 	//delay(700);
@@ -248,36 +248,10 @@ void opcontrol() {
 	// 	delay(300);
 	// 	//
 
-	//far roller side: shoot two discs and then go for the roller (hopefully we have enough time)
-	// intakeMotor.move(127);
-	// drivePID(430);
-	// FW.move_velocity(505);
-	// delay(1000);
-	// newTurn(198);
 
-	// //shooting
-	// intakeMotor.move(-127);
-	// delay(300);
-	// intakeMotor.brake();
-	// FW.move_velocity(515);
-	// delay(1100);
-	// intakeMotor.move(-127);
-	// delay(300);
-	// intakeMotor.brake();
-	// FW.move_velocity(520);
-	// delay(1100);
-	// intakeMotor.move(-127);
-	// delay(300);
-	// //
-
-	// newTurn(-55);
-	// drivePID(750);
-	// newTurn(40);
-	// drivePID(50);
-	// roller();
 	
 
-	// }
+	//}
 	//testPID(); //button A for testing pid turns
 
 	pros::delay(5);

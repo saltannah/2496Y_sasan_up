@@ -33,14 +33,13 @@ void chassis(){
 }
 
 void flywheelSpin(){
-    FW.move(116); //107 //100   //113
+    FW.move(102); //107 //100
 	//FW.move_velocity(480);
 	//when changing remember to update flywheelLower
 }
 
 void flywheelSpinSlow(){
-	//FW.move(102);
-	FW.move_velocity(440);
+	FW.move(102);
 }
 
 void revFlywheel(){
@@ -52,7 +51,7 @@ void intake(){
 }
 
 void indexer(){
-    intakeMotor.move(93);//103  95
+    intakeMotor.move(103);
 }
 
 void indexerBrake(){
