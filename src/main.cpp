@@ -152,6 +152,42 @@ void autonomous() {
 	// newTurn(40);
 	// drivePID(50);
 	// roller();
+
+//skills?:
+	// FW.move_velocity(550);//525  540
+	// //drivePID(47);//45 47
+	// rollerDrive(47); //should break out of loop after 1.5 seconds
+	// //delay(700);
+	// rollerSkills();
+	// delay(500);
+	// drivePID(-90);
+	// //delay(500);
+	// autonTurn(-11);
+	// //delay(500);
+	// drivePID(-160);
+	// delay(800);
+	
+	// //shooting
+	// intakeMotor.move(-127);
+	// delay(300);
+	// intakeMotor.brake();
+	// FW.move_velocity(535); //535
+	// delay(1300);//1100
+	// intakeMotor.move(-127);
+	// delay(500);
+	// //
+
+	// newTurn(100);
+	// drivePID(510);
+	// rollerSkills();
+	// delay(800);
+	// drivePID(-200);
+	// rollerSkills();
+	// delay(800);
+	// newTurn(-45);
+
+	// //expand:
+	// expPiston.set_value(HIGH);
 }
 
 /**
@@ -193,7 +229,7 @@ void opcontrol() {
 	*/
 	driverIntake();
 	driverFlywheel();
-	flywheelSlow();
+	//flywheelSlow();
 	expansion();
 	angler();
 	intakeHeight();

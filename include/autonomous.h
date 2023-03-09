@@ -115,4 +115,11 @@ void roller(){
     intakeMotor.brake();
 }
 
+void rollerSkills(){
+    intakeMotor.move(120);
+    delay(300);
+    intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+    intakeMotor.brake();
+}
+
 #endif

@@ -33,7 +33,7 @@ void chassis(){
 }
 
 void flywheelSpin(){
-    FW.move(116); //107 //100   //113
+    FW.move(114); //107 //100   //113 ///114
 	//FW.move_velocity(480);
 	//when changing remember to update flywheelLower
 }
@@ -48,11 +48,11 @@ void revFlywheel(){
 }
 
 void intake(){
-    intakeMotor.move(-127); //-120
+    intakeMotor.move(-130); //-120  //127
 }
 
 void indexer(){
-    intakeMotor.move(93);//103  95
+    intakeMotor.move(89);//103  95
 }
 
 void indexerBrake(){
@@ -66,23 +66,48 @@ void flywheelBrake(){
 }
 
 
+// void driverFlywheel(){
+//     //bool buttonA; //why are we still using A if the button is R2 lol
+// 	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_DOWN)){
+// 		slowFlywheel = !slowFlywheel;
+// 	}
+
+//     if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_R2)){
+// 		buttonR2 = !buttonR2;
+
+// 	    if(buttonR2){
+// 			flywheelOn = true;
+// 			if(!slowFlywheel){
+// 				flywheelSpin();
+// 			}
+// 			else if(slowFlywheel){
+// 				flywheelSpinSlow();
+// 			}
+//             con.clear();
+// 			con.print(0, 0, "flywheel ON");
+// 			//con.clear();
+// 		}
+			
+// 		else if(!buttonR2){
+// 			flywheelOn = false;
+// 			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
+// 			FW.brake();
+//             con.clear();
+// 			con.print(0, 0, "flywheel OFF");
+// 		}
+
+// 	}
+// }
+
 void driverFlywheel(){
     //bool buttonA; //why are we still using A if the button is R2 lol
-	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_DOWN)){
-		slowFlywheel = !slowFlywheel;
-	}
 
     if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_R2)){
 		buttonR2 = !buttonR2;
 
 	    if(buttonR2){
 			flywheelOn = true;
-			if(!slowFlywheel){
-				flywheelSpin();
-			}
-			else if(slowFlywheel){
-				flywheelSpinSlow();
-			}
+			flywheelSpin();
             con.clear();
 			con.print(0, 0, "flywheel ON");
 			//con.clear();
@@ -162,6 +187,43 @@ void expansion(){
 }
 
 
+// void angler(){
+// 	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_L2)){
+// 		angle = !angle;
+// 	}
+
+// 	if(angle){
+// 		pistonAngler.set_value(HIGH);
+// 		if(flywheelOn){
+// 			FW.move(120); //120 117
+// 		}
+		
+// 		else if(!flywheelOn){
+// 			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
+// 			FW.brake();
+// 		}
+		
+// 	}
+
+
+// 	else if(!angle){
+// 		pistonAngler.set_value(LOW);
+// 		if(flywheelOn){
+// 			if(!slowFlywheel){
+// 				flywheelSpin();
+// 			}
+// 			else if(slowFlywheel){
+// 				flywheelSpinSlow();
+// 			}
+// 		}
+// 		else if(!flywheelOn){
+// 			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
+// 			FW.brake();
+// 		}
+
+// 	}
+// }
+
 void angler(){
 	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_L2)){
 		angle = !angle;
@@ -170,7 +232,7 @@ void angler(){
 	if(angle){
 		pistonAngler.set_value(HIGH);
 		if(flywheelOn){
-			FW.move(117); //120
+			FW.move(120);
 		}
 		
 		else if(!flywheelOn){
@@ -184,18 +246,13 @@ void angler(){
 	else if(!angle){
 		pistonAngler.set_value(LOW);
 		if(flywheelOn){
-			if(!slowFlywheel){
-				flywheelSpin();
-			}
-			else if(slowFlywheel){
-				flywheelSpinSlow();
-			}
+			flywheelSpin();
 		}
 		else if(!flywheelOn){
 			FW.set_brake_mode(E_MOTOR_BRAKE_COAST);
 			FW.brake();
 		}
-
+		
 	}
 }
 
