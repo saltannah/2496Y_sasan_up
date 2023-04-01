@@ -52,7 +52,7 @@ void intake(){
 }
 
 void indexer(){
-    intakeMotor.move(89);//103  95
+    intakeMotor.move(130);//103  95
 }
 
 void indexerBrake(){
@@ -131,7 +131,8 @@ void flywheelSlow(){
 			FW.move(95);
 		}
 		else{
-			FW.move(100);
+			flywheelSpin();
+			//FW.move(100);
 		}
 	}
 }

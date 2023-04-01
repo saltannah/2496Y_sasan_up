@@ -35,10 +35,10 @@ void initialize() {
 	pros::lcd::set_text(1, "Hello PROS User!");
 
 	pros::lcd::register_btn1_cb(on_center_button);
-	imu.reset();
-	while(imu.is_calibrating()){
-		delay(5);
-	}
+	// imu.reset();
+	// while(imu.is_calibrating()){
+	// 	delay(5);
+	// }
 }
 
 /**
@@ -233,6 +233,7 @@ void opcontrol() {
 	expansion();
 	angler();
 	intakeHeight();
+	//testPID(); //button A for testing pid turns
 
 	//if(con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)){
 	// 	FW.move_velocity(525);
@@ -314,7 +315,6 @@ void opcontrol() {
 	
 
 	// }
-	//testPID(); //button A for testing pid turns
 
 	pros::delay(5);
 	}
