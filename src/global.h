@@ -21,7 +21,7 @@ namespace glb
     #define P_INTAKE 14
 
     #define P_INTAKE_P 'A'
-    #define P_ANGLE_P 'B'
+    #define P_ANGLE_P 'C'
     #define P_EXPANSION_P 'E'
     #define P_IMU 21
 

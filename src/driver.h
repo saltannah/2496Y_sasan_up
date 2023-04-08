@@ -67,7 +67,7 @@ int flywheel_control(int time)
     }
     else
     {   
-        if(glb::con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1))
+        if(glb::con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2))
         {
             fly_on = !fly_on;
         }
@@ -80,7 +80,9 @@ int flywheel_control(int time)
         }
         else
         {
+            
             pid::fw_stop();
+            //pid::fw_start();
         }
     }
 
@@ -89,7 +91,7 @@ int flywheel_control(int time)
 
 void intake_control(int speed_index)
 {
-    bool shoot = con.get_digital(E_CONTROLLER_DIGITAL_L2);
+    bool shoot = con.get_digital(E_CONTROLLER_DIGITAL_R1);
     bool intakeb = con.get_digital(E_CONTROLLER_DIGITAL_L1);
     double shoot_speed;
     if(angleP.get_status())
@@ -125,7 +127,7 @@ void intake_control(int speed_index)
 
 void angle_control()
 {
-    if(con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2))
+    if(con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2))
         angleP.toggle();
 }
 
