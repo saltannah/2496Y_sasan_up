@@ -171,6 +171,7 @@ void driverIntake(){
 // 	}
 // }
 
+/*
 void expansion(){
  	if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_B)){ //possibly add time conditions as well
  		if(spamExpand == false){
@@ -186,6 +187,7 @@ void expansion(){
 		}
 	}
 }
+*/
 
 
 // void angler(){

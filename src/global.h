@@ -22,7 +22,7 @@ namespace glb
 
     #define P_INTAKE_P 'D'
     #define P_ANGLE_P 'C'
-    #define P_EXPANSION_P 'E'
+    #define P_EXPANSION_P 'G'
     #define P_IMU 21
 
     // objects =============================

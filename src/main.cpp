@@ -4,6 +4,7 @@
 #include "auton.h"
 #include "pid.h"
 #include "lib/auton_obj.h"
+//#include "driver_control.h"
 
 using namespace glb;
 using namespace pros;
@@ -45,6 +46,7 @@ void opcontrol()
 		angle_control();
 		//hood_control(time);
 		expansion(time);
+		//expansion();
 		print_info(time, chassis_on);
 
 		if(con.get_digital_new_press(E_CONTROLLER_DIGITAL_RIGHT))

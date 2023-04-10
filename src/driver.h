@@ -137,7 +137,8 @@ void expansion(int time)
     static bool first_pressedA = false;
     static int first_pressed_timeA = 0;
 
-    if(con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A))
+    
+    if(con.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B))
     {
         if(first_pressedA)
         {
@@ -159,6 +160,7 @@ void expansion(int time)
     if(first_pressed_timeA + 500 < time)
         first_pressedA = false;
 }
+
 void print_info(int time, bool chassis_on)
 {
     if(time % 50 == 0 && time % 500 != 0 && time % 150 != 0 && time % 1600 != 0)

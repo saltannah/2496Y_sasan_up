@@ -450,7 +450,7 @@ namespace pid
         double kP = 0.8;
         double kI = 0.8;
         double kD = 0.0;
-        double kF = 0.199;
+        double kF = 0.21; //0.199 4/10
         double full_speed = 50;
 
         // initialize pid variables
@@ -465,7 +465,7 @@ namespace pid
 
         void const_eq(double err)
         {
-            if(flywheel_target < 420)
+            if(flywheel_target < 420) //420
             {
                 kP = 0.6;
                 kI = 0.5;
@@ -544,7 +544,7 @@ namespace pid
                     {
                         if(recover)
                         {
-                            if(glb::intake.get_actual_velocity() > 30 && flywheel_target < 420)
+                            if(glb::intake.get_actual_velocity() > 30 && flywheel_target < 500)
                             {
                                 if(recover_start == false)
                                 {
