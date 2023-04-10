@@ -47,8 +47,8 @@ void tank_drive()
 int flywheel_control(int time)
 {
     static bool fly_on = false;
-    int flat_speeds[] = {370, 400};
-    int angle_speeds[] = {380, 400};
+    int flat_speeds[] = {440, 370}; //400, 370
+    int angle_speeds[] = {400, 380}; //400, 380
     static int speed_index = 0;
 
     // set speed index

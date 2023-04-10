@@ -20,7 +20,7 @@ namespace glb
     #define P_FLY 10
     #define P_INTAKE 14
 
-    #define P_INTAKE_P 'A'
+    #define P_INTAKE_P 'D'
     #define P_ANGLE_P 'C'
     #define P_EXPANSION_P 'E'
     #define P_IMU 21
