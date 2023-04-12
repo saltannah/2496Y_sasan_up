@@ -450,7 +450,7 @@ namespace pid
         double kP = 0.8;
         double kI = 0.8;
         double kD = 0.0;
-        double kF = 0.21; //0.199 4/10
+        double kF = 0.23; //0.199 ---> 0.21 4/10
         double full_speed = 50;
 
         // initialize pid variables
