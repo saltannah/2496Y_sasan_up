@@ -48,7 +48,7 @@ int flywheel_control(int time)
 {
     static bool fly_on = false;
     int flat_speeds[] = {440, 370}; //400, 370
-    int angle_speeds[] = {400, 380}; //400, 380
+    int angle_speeds[] = {400, 380}; //never changed from og brandon code
     static int speed_index = 0;
 
     // set speed index
@@ -107,7 +107,7 @@ void intake_control(int speed_index)
     if(intakeb)
     {
         // hoodP.set(true);
-        intake.move(-127);
+        intake.move(-600); //-127 --> -600 4/15
     }
     else if(shoot)
     {
