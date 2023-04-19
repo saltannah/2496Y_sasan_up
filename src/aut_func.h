@@ -96,15 +96,15 @@ namespace auf
 
     void shoot(int num_discs=3, double shoot_speed=-79)
     {
-        delay(300);
+        delay(300);//300
         intake_vel(shoot_speed);
         int time = 0;
-        while(time < num_discs * 300)
+        while(time < num_discs * 300)//300
         {
             time += 10;
             pros::delay(10);
         }
-        delay(200);
+        delay(200);//200
         intake_vel(0);
     }
 }

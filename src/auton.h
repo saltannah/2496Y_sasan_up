@@ -21,9 +21,22 @@ void none()
 
 void test_shoot()
 {
-    fw_spin(470);
-    delay(2000);
-    pid_index();
+    fw_spin(990);//470, 690
+    delay(8500);
+    //pid_index();
+    //shoot(1, -75);
+    intake.move_velocity(600);
+    delay(250);
+    intake.move_velocity(0);
+    delay(7000);
+    intake.move_velocity(600);
+    //shoot(1);
+    //pid_index();
+    //shoot(2);
+
+    // fw_spin(-127);
+	// delay(1000);
+	// intake.move(110);
 }
 
 void turns()

@@ -31,7 +31,7 @@ namespace glb
     pros::Motor intake(P_INTAKE, pros::E_MOTOR_GEARSET_06, true);
     pros::Imu imu(P_IMU);
 
-    Piston intakeP(P_INTAKE_P);
+    Piston intakeP(P_INTAKE_P, true);
     Piston angleP(P_ANGLE_P, false, true);
     Piston expansionP(P_EXPANSION_P);
     Chassis chas({P_FL, -P_ML, P_BL}, {P_FR, -P_MR, P_BR}, pros::E_MOTOR_GEARSET_18, false);
