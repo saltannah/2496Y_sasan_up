@@ -47,18 +47,10 @@ void tank_drive()
 int flywheel_control(int time)
 {
     static bool fly_on = false;
-<<<<<<< Updated upstream
-    int flat_speeds[] = {440, 370}; //400, 370
-    int angle_speeds[] = {400, 380}; //never changed from og brandon code
-=======
-<<<<<<< HEAD
-    int flat_speeds[] = {440, 375}; //400, 370 //440, 370
-    int angle_speeds[] = {400, 380}; //400, 380
-=======
-    int flat_speeds[] = {440, 370}; //400, 370
-    int angle_speeds[] = {400, 380}; //never changed from og brandon code
->>>>>>> dab76add9002994650311857e6deff338c2b698b
->>>>>>> Stashed changes
+
+    int flat_speeds[] = {440, 375}; //400, 370
+    int angle_speeds[] = {400, 500}; //never changed from og brandon code
+
     static int speed_index = 0;
 
     // set speed index
