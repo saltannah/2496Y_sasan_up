@@ -107,6 +107,14 @@ namespace auf
         delay(200);//200
         intake_vel(0);
     }
+    
+    void roller2(){
+    intake.move(120);
+    delay(270);
+    intake.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+    intake.brake();
+    }
+    
 }
 
 

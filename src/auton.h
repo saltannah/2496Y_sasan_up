@@ -92,10 +92,16 @@ void solo_awp()
 
 }
 
+void testing()
+{
+    fw_spin(500);
+}
+
 // AUTON LIST: CREATE AUTON OBJECTS WITH (NAME, FUNCTION) AS PARAMETERS TO BE USED IN AUTON SELECTOR
 std::vector<Auton> autons
 {
     Auton("none", none),
+    Auton("testing", testing),
     Auton("test shoot", test_shoot),
     Auton("turns", turns),
     Auton("solo awp", solo_awp),
