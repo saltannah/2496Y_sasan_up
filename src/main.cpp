@@ -25,7 +25,8 @@ void initialize()
 void autonomous()
 {
 	imu.set_heading(0);
-	(*auton).run();
+	//testing();
+	(*auton).run(); //removed this selector and directly call function
 }
 
 void opcontrol() 
