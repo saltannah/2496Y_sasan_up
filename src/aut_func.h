@@ -1,7 +1,6 @@
 #ifndef __AUT_FUNC__
 #define __AUT_FUNC__
 
-#include "driver_control.h"
 #include "main.h"
 #include "global.h"
 #include "pid.h"
@@ -108,18 +107,6 @@ namespace auf
         delay(200);//200
         intake_vel(0);
     }
-
-    void roller(){
-        intake.move(120);
-        delay(270);
-        intake.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-        intake.brake();
-    }
-
-    void flywheelMoving(int speed){
-        flywheel.move(speed);
-    }
-
 }
 
 

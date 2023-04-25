@@ -48,7 +48,7 @@ int flywheel_control(int time)
 {
     static bool fly_on = false;
 
-    int flat_speeds[] = {400, 375}; //400, 370      440, 375 until 4/25
+    int flat_speeds[] = {440, 375}; //400, 370
     int angle_speeds[] = {400, 500}; //never changed from og brandon code
 
     static int speed_index = 0;
