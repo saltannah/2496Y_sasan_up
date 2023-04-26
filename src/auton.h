@@ -94,7 +94,18 @@ void solo_awp()
 
 void testing()
 {
-    fw_spin(500);
+    //fw_spin(990);
+    //delay(2000);
+    //fw_spin(500);
+    //delay(2000);
+    //flywheelMoving(127);
+    fw_spin(990);
+    drive_const(100, 80, 100);
+    roller2();
+    drive_const(-150, 80, 1000);//-100
+    turn_to(-15);
+    //delay(3000);
+    shoot(2);
 }
 
 // AUTON LIST: CREATE AUTON OBJECTS WITH (NAME, FUNCTION) AS PARAMETERS TO BE USED IN AUTON SELECTOR
