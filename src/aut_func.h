@@ -104,13 +104,13 @@ namespace auf
             time += 10;
             pros::delay(10);
         }
-        delay(200);//200
+        delay(120);//200
         intake_vel(0);
     }
     
     void roller2(){
-    intake.move(-120);
-    delay(1500); //270
+    intake.move(120); //-120
+    delay(225); //270 240
     intake.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
     intake.brake();
     }

@@ -94,18 +94,53 @@ void solo_awp()
 
 void testing()
 {
-    //fw_spin(990);
-    //delay(2000);
-    //fw_spin(500);
-    //delay(2000);
-    //flywheelMoving(127);
-    fw_spin(990);
-    drive_const(100, 80, 100);
+        
+    /*
+    intake.move(120);
+    chas.spin_left(50);
+    chas.spin_right(50);
+    delay(200);
+    intake.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+    intake.brake();
+    chas.stop();
+    */
+
+    
+    fw_spin(2000); //990
+    drive_const(50, 50, 500);
     roller2();
     drive_const(-150, 80, 1000);//-100
-    turn_to(-15);
-    //delay(3000);
-    shoot(2);
+    turn_to(-7); //15
+    delay(2000);
+    shoot(1);
+    delay(2000); //2000 1800
+    shoot(1);
+
+    /*
+    turn_to(-125); //120
+    drive_const(300, 80, 5000);
+    intake.move(-127);
+    chas.spin_left(20);
+    chas.spin_right(20);
+    delay(3000);
+    chas.stop();
+    turn_to(-90);
+    intake.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+    intake.brake();
+    delay(2000);
+    shoot(1);
+    delay(2000);
+    shoot(1);
+    delay(2000);
+    shoot(1);
+    */
+
+
+
+
+
+    
+    
 }
 
 // AUTON LIST: CREATE AUTON OBJECTS WITH (NAME, FUNCTION) AS PARAMETERS TO BE USED IN AUTON SELECTOR

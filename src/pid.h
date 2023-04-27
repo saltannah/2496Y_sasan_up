@@ -467,15 +467,15 @@ namespace pid
         {
             if(flywheel_target < 420) //420
             {
-                kP = 0.6;
-                kI = 0.5;
-                full_speed = 100;
+                kP = 0.6; //0.6
+                kI = 0.5; //0.5
+                full_speed = 100; //100
             }
             else
             {
-                kP = 1.5;
-                kI = 2.0;
-                full_speed = 20;
+                kP = 1.5; //1.5
+                kI = 2.0; //2.0
+                full_speed = 20; //20
             }
         }
 
